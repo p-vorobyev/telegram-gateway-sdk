@@ -1,0 +1,6 @@
+.gradle
+build/
+.kotlin
+.idea
+!gradle/wrapper/gradle-wrapper.jar
+.gigaide
