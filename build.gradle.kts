@@ -54,7 +54,7 @@ publishing {
     repositories {
         maven {
             name = "GitHubPackages"
-            url = uri("https://maven.pkg.github.com/p-vorobyev/*")
+            url = uri("https://maven.pkg.github.com/p-vorobyev/telegram-gateway-sdk")
             credentials {
                 username =  "p-vorobyev"
                 password = System.getenv("GITHUB_TOKEN")
