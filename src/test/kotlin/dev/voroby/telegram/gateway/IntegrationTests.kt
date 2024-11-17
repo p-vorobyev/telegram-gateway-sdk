@@ -1,5 +1,6 @@
 package dev.voroby.telegram.gateway
 
+import arrow.core.Either
 import dev.voroby.telegram.gateway.common.domain.Response
 import dev.voroby.telegram.gateway.common.infrastructure.Protocol
 import dev.voroby.telegram.gateway.service.checkSendAbility.CheckSendAbility
@@ -23,8 +24,8 @@ class IntegrationTests : FunSpec({
 
     test("Invoke check ability to send the code to the user") {
         val request = CheckSendAbility.Request("phone_number_in_international_format")
-        val checkSendAbility = telegramGateway.checkSendAbility(request)
-        checkSendAbility.isRight().shouldBeTrue()
-        checkSendAbility.onRight { onProtocolSuccess(it) }
+        val response: Either<Throwable, Response> = telegramGateway.checkSendAbility(request)
+        response.isRight().shouldBeTrue()
+        response.onRight { onProtocolSuccess(it) }
     }
 })
