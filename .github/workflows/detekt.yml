@@ -3,7 +3,7 @@ on:
   pull_request:
     types: [opened]
   push:
-    branches: [*]
+    branches: ['*']
 jobs:
   analyze:
     runs-on: ubuntu-latest
