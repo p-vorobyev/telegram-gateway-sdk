@@ -7,5 +7,9 @@ data class DeliveryStatus(
     @JsonProperty("updated_at") val updatedAt: Int
 ) {
 
-    enum class Status { sent, read, revoked }
+    enum class Status {
+        @JsonProperty("sent") Sent,
+        @JsonProperty("read") Read,
+        @JsonProperty("revoked") Revoked
+    }
 }

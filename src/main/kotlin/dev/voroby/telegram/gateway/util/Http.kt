@@ -1,9 +1,6 @@
 package dev.voroby.telegram.gateway.util
 
-class Http {
+object Http {
 
-    companion object {
-
-        const val DEFAULT_GATEWAY_HOST = "gatewayapi.telegram.org"
-    }
+    const val DEFAULT_GATEWAY_HOST = "gatewayapi.telegram.org"
 }

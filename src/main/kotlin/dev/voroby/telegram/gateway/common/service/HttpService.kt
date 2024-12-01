@@ -5,27 +5,24 @@ import arrow.core.Either.Companion.catch
 import dev.voroby.telegram.gateway.common.domain.Response
 import dev.voroby.telegram.gateway.common.domain.Response.Error
 import dev.voroby.telegram.gateway.common.domain.Response.Success
-import dev.voroby.telegram.gateway.common.infrastructure.HttpProtocol
-import dev.voroby.telegram.gateway.util.Http.Companion.DEFAULT_GATEWAY_HOST
+import dev.voroby.telegram.gateway.common.infrastructure.Protocol
+import dev.voroby.telegram.gateway.util.Http.DEFAULT_GATEWAY_HOST
 import dev.voroby.telegram.gateway.util.ObjectMapper.toJson
 import java.net.URI
 import java.net.http.HttpRequest
 import java.net.http.HttpRequest.BodyPublishers.ofString
 
-class HttpService(private val protocol: HttpProtocol) {
+class HttpService(private val protocol: Protocol<HttpRequest>) : Service<Http.Request<*>> {
 
-    suspend fun <Payload> execute(
-        body: Payload,
-        serviceName: String,
-        accessToken: String,
-        host: String?
-    ): Either<Throwable, Response> = catch {
-        val request = httpRequest(body, serviceName, accessToken, host)
-        val baseResponse = protocol(request)
-        if (baseResponse.ok)
-            baseResponse.result?.let { Success(it) } ?: Error(NO_RESULT_MESSAGE)
-        else
-            Error(baseResponse.error)
+    override suspend fun invoke(request: Http.Request<*>): Either<Throwable, Response> = with(request) {
+        catch {
+            val protocolRequest = httpRequest(body, serviceName, accessToken, host)
+            val baseResponse = protocol(protocolRequest)
+            if (baseResponse.ok)
+                baseResponse.result?.let { Success(it) } ?: Error(NO_RESULT_MESSAGE)
+            else
+                Error(baseResponse.error)
+        }
     }
 
     private fun <Payload> httpRequest(

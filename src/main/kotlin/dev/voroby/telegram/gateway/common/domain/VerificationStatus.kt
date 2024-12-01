@@ -8,5 +8,10 @@ data class VerificationStatus(
     @JsonProperty("code_entered") val codeEntered: String? = null,
 ) {
 
-    enum class Status { code_valid, code_invalid, code_max_attempts_exceeded, expired }
+    enum class Status {
+        @JsonProperty("code_valid") CodeValid,
+        @JsonProperty("code_invalid") CodeInvalid,
+        @JsonProperty("code_max_attempts_exceeded") CodeMaxAttemptsExceeded,
+        @JsonProperty("expired") Expired
+    }
 }

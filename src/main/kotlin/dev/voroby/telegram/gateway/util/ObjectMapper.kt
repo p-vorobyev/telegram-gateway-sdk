@@ -4,9 +4,9 @@ import com.fasterxml.jackson.module.kotlin.jacksonObjectMapper
 
 object ObjectMapper {
 
-    val objectMapper by lazy { jacksonObjectMapper() }
+    val mapper by lazy { jacksonObjectMapper() }
 
-    fun <T> toJson(obj: T): String = objectMapper.writeValueAsString(obj)
+    fun <T> toJson(obj: T): String = mapper.writeValueAsString(obj)
 
-    inline fun <reified T> fromJson(json: String): T = objectMapper.readValue(json, T::class.java)
+    inline fun <reified T> fromJson(json: String): T = mapper.readValue(json, T::class.java)
 }

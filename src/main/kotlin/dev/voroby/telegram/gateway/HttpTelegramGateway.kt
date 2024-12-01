@@ -1,7 +1,9 @@
 package dev.voroby.telegram.gateway
 
 import dev.voroby.telegram.gateway.common.infrastructure.HttpProtocol
+import dev.voroby.telegram.gateway.common.service.Http
 import dev.voroby.telegram.gateway.common.service.HttpService
+import dev.voroby.telegram.gateway.common.service.Service
 import dev.voroby.telegram.gateway.service.checkSendAbility.CheckSendAbility
 import dev.voroby.telegram.gateway.service.checkSendAbility.CheckSendAbilityService
 import dev.voroby.telegram.gateway.service.checkVerificationStatus.CheckVerificationStatus
@@ -15,7 +17,7 @@ class HttpTelegramGateway(
     private val gatewayHost: String?
 ): TelegramGateway {
 
-    private val httpService by lazy { HttpService(protocol) }
+    private val httpService: Service<Http.Request<*>> by lazy { HttpService(protocol) }
 
     private val checkSendAbilityService by lazy { CheckSendAbilityService(httpService) }
 
