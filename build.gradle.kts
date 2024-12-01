@@ -1,6 +1,7 @@
 plugins {
     alias { libs.plugins.kotlin.jvm }
     alias { libs.plugins.maven.publish }
+    alias { libs.plugins.detekt }
 }
 
 group = "dev.voroby"
@@ -42,6 +43,10 @@ java {
 
 kotlin {
     jvmToolchain(21)
+}
+
+detekt {
+    toolVersion = libs.versions.detekt.get()
 }
 
 publishing {

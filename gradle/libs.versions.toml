@@ -4,6 +4,7 @@ coroutines = "1.8.0"
 arrow = "1.2.4"
 jackson = "2.18.0"
 kotest = "5.8.1"
+detekt = "1.23.7"
 
 [libraries]
 coroutines-core = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core", version.ref = "coroutines" }
@@ -18,3 +19,4 @@ kotest = ["kotest-core", "kotest-runner"]
 [plugins]
 kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
 maven-publish = { id = "maven-publish" }
+detekt = { id = "io.gitlab.arturbosch.detekt", version.ref = "detekt" }

@@ -1,0 +1,21 @@
+name: detekt
+on:
+  pull_request:
+    types: [opened]
+  push:
+    branches: [*]
+jobs:
+  analyze:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          java-version: '21'
+          distribution: 'temurin'
+      - uses: gradle/actions/setup-gradle@v4
+      - name: Runs a detekt analysis and complexity report
+        run: ./gradlew detekt
