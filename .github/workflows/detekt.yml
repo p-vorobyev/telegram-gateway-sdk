@@ -18,4 +18,4 @@ jobs:
           distribution: 'temurin'
       - uses: gradle/actions/setup-gradle@v4
       - name: Runs a detekt analysis and complexity report
-        run: ./gradlew detekt
+        run: ./gradlew detektMain
