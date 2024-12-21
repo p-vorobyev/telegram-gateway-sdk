@@ -1,21 +1,33 @@
 package dev.voroby.telegram.gateway
 
 import arrow.core.Either
-import dev.voroby.telegram.gateway.common.domain.Response
+import dev.voroby.telegram.gateway.common.domain.StatusResponse
 import dev.voroby.telegram.gateway.common.infrastructure.HttpProtocol
 import dev.voroby.telegram.gateway.common.infrastructure.Protocol
-import dev.voroby.telegram.gateway.service.checkSendAbility.CheckSendAbility
-import dev.voroby.telegram.gateway.service.checkVerificationStatus.CheckVerificationStatus
-import dev.voroby.telegram.gateway.service.sendVerificationMessage.SendVerificationMessage
+import dev.voroby.telegram.gateway.checkSendAbility.CheckSendAbility
+import dev.voroby.telegram.gateway.checkVerificationStatus.CheckVerificationStatus
+import dev.voroby.telegram.gateway.common.domain.BooleanResponse
+import dev.voroby.telegram.gateway.revokeVerificationMessage.RevokeVerificationMessage
+import dev.voroby.telegram.gateway.sendVerificationMessage.SendVerificationMessage
 
 /* https://core.telegram.org/gateway/api */
 interface TelegramGateway : AutoCloseable {
 
-    suspend fun checkSendAbility(request: CheckSendAbility.Request): Either<Throwable, Response>
+    suspend fun checkSendAbility(
+        request: CheckSendAbility.Request
+    ): Either<Throwable, StatusResponse>
 
-    suspend fun checkVerificationStatus(request: CheckVerificationStatus.Request): Either<Throwable, Response>
+    suspend fun checkVerificationStatus(
+        request: CheckVerificationStatus.Request
+    ): Either<Throwable, StatusResponse>
 
-    suspend fun sendVerificationMessage(request: SendVerificationMessage.Request): Either<Throwable, Response>
+    suspend fun sendVerificationMessage(
+        request: SendVerificationMessage.Request
+    ): Either<Throwable, StatusResponse>
+
+    suspend fun revokeVerificationMessage(
+        request: RevokeVerificationMessage.Request
+    ): Either<Throwable, BooleanResponse>
 
     companion object {
 
