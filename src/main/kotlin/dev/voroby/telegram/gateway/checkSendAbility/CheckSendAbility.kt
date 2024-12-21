@@ -1,4 +1,4 @@
-package dev.voroby.telegram.gateway.service.checkSendAbility
+package dev.voroby.telegram.gateway.checkSendAbility
 
 import com.fasterxml.jackson.annotation.JsonProperty
 

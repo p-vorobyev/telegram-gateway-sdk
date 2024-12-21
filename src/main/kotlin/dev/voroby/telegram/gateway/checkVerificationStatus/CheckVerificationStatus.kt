@@ -1,4 +1,4 @@
-package dev.voroby.telegram.gateway.service.checkVerificationStatus
+package dev.voroby.telegram.gateway.checkVerificationStatus
 
 import com.fasterxml.jackson.annotation.JsonInclude
 import com.fasterxml.jackson.annotation.JsonInclude.Include.NON_NULL

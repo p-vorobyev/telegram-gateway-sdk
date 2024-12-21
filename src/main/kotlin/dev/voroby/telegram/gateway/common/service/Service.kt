@@ -1,9 +1,8 @@
 package dev.voroby.telegram.gateway.common.service
 
 import arrow.core.Either
-import dev.voroby.telegram.gateway.common.domain.Response
 
-interface Service<T> {
+interface Service<Request, Response> {
 
-    suspend operator fun invoke(request: T): Either<Throwable, Response>
+    suspend operator fun invoke(request: Request): Either<Throwable, Response>
 }

@@ -1,4 +1,4 @@
-package dev.voroby.telegram.gateway.service.sendVerificationMessage
+package dev.voroby.telegram.gateway.sendVerificationMessage
 
 import com.fasterxml.jackson.annotation.JsonInclude
 import com.fasterxml.jackson.annotation.JsonInclude.Include.NON_NULL
