@@ -16,7 +16,6 @@ This library allows you to verify phone numbers of users and send authorization 
 |------------|-----|
 | JDK        | 21+ |
 | Kotlin     | 1.9+ |
-| Coroutines | 1.8.0+ |
 
 <a name="installation"></a>
 ## Installation
@@ -112,19 +111,32 @@ Available methods([documentation](https://core.telegram.org/gateway/api)):
 ```kotlin
 interface TelegramGateway : AutoCloseable {
 
-    suspend fun checkSendAbility(request: CheckSendAbility.Request): Either<Throwable, Response>
+    suspend fun checkSendAbility(
+        request: CheckSendAbility.Request
+    ): Either<Throwable, StatusResponse>
 
-    suspend fun checkVerificationStatus(request: CheckVerificationStatus.Request): Either<Throwable, Response>
+    suspend fun checkVerificationStatus(
+        request: CheckVerificationStatus.Request
+    ): Either<Throwable, StatusResponse>
 
-    suspend fun sendVerificationMessage(request: SendVerificationMessage.Request): Either<Throwable, Response>
+    suspend fun sendVerificationMessage(
+        request: SendVerificationMessage.Request
+    ): Either<Throwable, StatusResponse>
+
+    suspend fun revokeVerificationMessage(
+        request: RevokeVerificationMessage.Request
+    ): Either<Throwable, BooleanResponse>
 }
 ```
 Let's check the ability to send a verification message to the specified phone number:
 ```kotlin
 telegramGateway.use { tg ->
     val request = CheckSendAbility.Request("phone_number_in_international_format")
-    val response: Either<Throwable, Response> = tg.checkSendAbility(request)
-    response.onRight { println(it.toString()) }
+    val statusResponse: Either<Throwable, StatusResponse> = tg.checkSendAbility(request)
+    statusResponse.fold(
+        { println(it.stackTraceToString()) },
+        { onProtocolSuccess(it) }
+    )
 }
 ```
 
