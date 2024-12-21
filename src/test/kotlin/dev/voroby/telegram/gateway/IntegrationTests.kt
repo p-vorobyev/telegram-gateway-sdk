@@ -25,8 +25,10 @@ class IntegrationTests : FunSpec({
     test("Invoke check ability to send the code to the user") {
         val request = CheckSendAbility.Request("phone_number_in_international_format")
         val statusResponse: Either<Throwable, StatusResponse> = telegramGateway.checkSendAbility(request)
-        statusResponse.onLeft { println(it.stackTraceToString()) }
+        statusResponse.fold(
+            { println(it.stackTraceToString()) },
+            { onProtocolSuccess(it) }
+        )
         statusResponse.isRight().shouldBeTrue()
-        statusResponse.onRight { onProtocolSuccess(it) }
     }
 })
