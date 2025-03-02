@@ -1,7 +1,9 @@
 package dev.voroby.telegram.gateway.common.domain
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties
 import com.fasterxml.jackson.annotation.JsonProperty
 
+@JsonIgnoreProperties(ignoreUnknown = true)
 data class VerificationStatus(
     val status: Status,
     @JsonProperty("updated_at") val updatedAt: Int,

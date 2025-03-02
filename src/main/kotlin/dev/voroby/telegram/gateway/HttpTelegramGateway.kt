@@ -14,6 +14,7 @@ import dev.voroby.telegram.gateway.revokeVerificationMessage.RevokeVerificationM
 import dev.voroby.telegram.gateway.revokeVerificationMessage.RevokeVerificationMessageService
 import dev.voroby.telegram.gateway.sendVerificationMessage.SendVerificationMessage
 import dev.voroby.telegram.gateway.sendVerificationMessage.SendVerificationMessageService
+import dev.voroby.telegram.gateway.sendVerificationMessage.validateRequest
 import dev.voroby.telegram.gateway.revokeVerificationMessage.HttpService as RevokeVerificationHttpService
 
 class HttpTelegramGateway(
@@ -32,7 +33,9 @@ class HttpTelegramGateway(
 
     private val checkVerificationStatusService by lazy { CheckVerificationStatusService(commonHttpService) }
 
-    private val sendVerificationMessageService by lazy { SendVerificationMessageService(commonHttpService) }
+    private val sendVerificationMessageService by lazy {
+        SendVerificationMessageService(commonHttpService).validateRequest()
+    }
 
     private val revokeVerificationMessageService by lazy {
         RevokeVerificationMessageService(revokeVerificationHttpService)
