@@ -13,9 +13,9 @@ This library allows you to verify phone numbers of users and send authorization 
 <a name="requirements"></a>
 ## Requirements
 | Technology | Version |
-|------------|-----|
+|------------|--|
 | JDK        | 21+ |
-| Kotlin     | 1.9+ |
+| Kotlin     | 2.1.10 |
 
 <a name="installation"></a>
 ## Installation
@@ -83,7 +83,7 @@ repositories {
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**Gradle**:
 
 ```kotlin
-implementation("dev.voroby:telegram-gateway-sdk:1.1.0")
+implementation("dev.voroby:telegram-gateway-sdk:2.0.0")
 ```
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**Maven**:
@@ -92,7 +92,7 @@ implementation("dev.voroby:telegram-gateway-sdk:1.1.0")
 <dependency>
     <groupId>dev.voroby</groupId>
     <artifactId>telegram-gateway-sdk</artifactId>
-    <version>1.1.0</version>
+    <version>2.0.0</version>
 </dependency>
 ```
 
