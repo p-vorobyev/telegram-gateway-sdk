@@ -1,5 +1,6 @@
 package dev.voroby.telegram.gateway.common.infrastructure
 
+import dev.voroby.telegram.gateway.common.infrastructure.ProtocolResponse.Companion.fromJson
 import kotlinx.coroutines.future.await
 import java.net.http.HttpClient
 import java.net.http.HttpRequest
@@ -15,9 +16,8 @@ class HttpProtocol(
     private val httpClient: HttpClient by lazy { httpClientBuilder?.build() ?: initDefaultHttpClient() }
 
     override suspend operator fun invoke(request: HttpRequest): ProtocolResponse =
-        httpClient.sendAsync(request, ofString())
-            .await()
-            .let { ProtocolResponse.fromJson(it.body()) }
+        httpClient.sendAsync(request, ofString()).await()
+            .body().let(::fromJson)
 
     override fun close() = httpClient.close()
 
