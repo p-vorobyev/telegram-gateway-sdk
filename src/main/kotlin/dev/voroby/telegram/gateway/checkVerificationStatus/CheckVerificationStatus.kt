@@ -8,7 +8,7 @@ object CheckVerificationStatus {
 
     @JsonInclude(NON_NULL)
     data class Request(
-        @JsonProperty("request_id") val requestId: String,
+        @param:JsonProperty("request_id") val requestId: String,
         val code: String?
     )
 

@@ -8,16 +8,16 @@ object SendVerificationMessage {
 
     @JsonInclude(NON_NULL)
     data class Request(
-        @JsonProperty("phone_number")
+        @param:JsonProperty("phone_number")
         val phoneNumber: String,
-        @JsonProperty("request_id")
+        @param:JsonProperty("request_id")
         val requestId: String? = null,
-        @JsonProperty("sender_username")
+        @param:JsonProperty("sender_username")
         val senderUsername: String? = null,
         val code: String? = null,
-        @JsonProperty("code_length")
+        @param:JsonProperty("code_length")
         val codeLength: Int? = null,
-        @JsonProperty("callback_url")
+        @param:JsonProperty("callback_url")
         val callbackUrl: String? = null,
         val payload: String? = null,
         val ttl: Int? = null

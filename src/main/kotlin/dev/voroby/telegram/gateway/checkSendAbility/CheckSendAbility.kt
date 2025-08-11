@@ -4,7 +4,7 @@ import com.fasterxml.jackson.annotation.JsonProperty
 
 object CheckSendAbility {
 
-    data class Request(@JsonProperty("phone_number") val phoneNumber: String)
+    data class Request(@param:JsonProperty("phone_number") val phoneNumber: String)
 
     data class ExtendedRequest(
         val accessToken: String,

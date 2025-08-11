@@ -6,7 +6,7 @@ import com.fasterxml.jackson.annotation.JsonProperty
 @JsonIgnoreProperties(ignoreUnknown = true)
 data class DeliveryStatus(
     val status: Status,
-    @JsonProperty("updated_at") val updatedAt: Int
+    @param:JsonProperty("updated_at") val updatedAt: Int
 ) {
 
     enum class Status {
