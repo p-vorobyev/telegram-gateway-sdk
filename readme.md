@@ -83,7 +83,7 @@ repositories {
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**Gradle**:
 
 ```kotlin
-implementation("dev.voroby:telegram-gateway-sdk:2.0.0")
+implementation("dev.voroby:telegram-gateway-sdk:2.1.0")
 ```
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**Maven**:
@@ -92,7 +92,7 @@ implementation("dev.voroby:telegram-gateway-sdk:2.0.0")
 <dependency>
     <groupId>dev.voroby</groupId>
     <artifactId>telegram-gateway-sdk</artifactId>
-    <version>2.0.0</version>
+    <version>2.1.0</version>
 </dependency>
 ```
 

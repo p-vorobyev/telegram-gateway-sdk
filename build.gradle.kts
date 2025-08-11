@@ -5,7 +5,7 @@ plugins {
 }
 
 group = "dev.voroby"
-version = "2.0.0"
+version = "2.1.0"
 
 repositories {
     mavenCentral()
@@ -13,6 +13,7 @@ repositories {
 }
 
 dependencies {
+
     implementation(libs.coroutines.core)
     implementation(libs.arrow.core)
     implementation(libs.jackson.module)
@@ -26,14 +27,6 @@ tasks.register("libraryVersion") {
 
 tasks.test {
     useJUnitPlatform()
-}
-
-tasks.jar {
-    from(
-        configurations.runtimeClasspath.get()
-            .map { if (it.isDirectory) it else zipTree(it) }
-    )
-    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
 }
 
 java {
