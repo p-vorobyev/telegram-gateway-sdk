@@ -1,10 +1,10 @@
 [versions]
 kotlin = "2.1.10"
-coroutines = "1.10.1"
-arrow = "2.0.1"
-jackson = "2.18.0"
-kotest = "5.8.1"
-detekt = "1.23.7"
+coroutines = "1.10.2"
+arrow = "2.1.0"
+jackson = "2.19.2"
+kotest = "5.9.1"
+detekt = "1.23.8"
 
 [libraries]
 coroutines-core = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core", version.ref = "coroutines" }
