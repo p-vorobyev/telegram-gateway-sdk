@@ -12,10 +12,7 @@ This library allows you to verify phone numbers of users and send authorization 
 
 <a name="requirements"></a>
 ## Requirements
-| Technology | Version |
-|------------|--|
-| JDK        | 21+ |
-| Kotlin     | 2.1.10 |
+- **JDK 21+**
 
 <a name="installation"></a>
 ## Installation
