@@ -1,9 +1,9 @@
 [versions]
-kotlin = "2.2.10"
+kotlin = "2.2.21"
 coroutines = "1.10.2"
-arrow = "2.1.0"
-jackson = "2.19.2"
-kotest = "5.9.1"
+arrow = "2.2.1.1"
+jackson = "2.20.1"
+kotest = "6.0.7"
 detekt = "1.23.8"
 
 [libraries]
